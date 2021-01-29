@@ -175,7 +175,7 @@ func (p *Provider) setZoneID(zoneName string) (string, error) {
 	}
 
 	for _, zone := range allZones {
-		zone.Name = zone.Name + "."
+		zone.Name = zone.Name
 		if zoneName == zone.Name {
 			return zone.ID, nil
 		}
