@@ -69,6 +69,13 @@ func (p *Provider) AppendRecords(ctx context.Context, zone string, records []lib
 		return nil, fmt.Errorf("cannot authenticate to OpenStack Designate: %v", err)
 	}
 
+	fmt.Println("AppendRecord zone:", zone)
+
+	last := zone[len(zone)-1:]
+	if last != "." {
+		zone = zone + "."
+	}
+
 	err = p.setZone(zone)
 	if err != nil {
 		return nil, fmt.Errorf("cannot set ZONE: %v", err)
