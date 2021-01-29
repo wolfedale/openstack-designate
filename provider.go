@@ -32,11 +32,13 @@ type AuthOpenStack struct {
 
 // GetRecords lists all the records in the zone.
 func (p *Provider) GetRecords(ctx context.Context, zone string) ([]libdns.Record, error) {
+	fmt.Println("---------------------->", zone)
 	err := p.auth()
 	if err != nil {
 		return nil, fmt.Errorf("cannot authenticate to OpenStack Designate: %v", err)
 	}
 
+	fmt.Println("ZONE: ", zone)
 	err = p.setZone(zone)
 	if err != nil {
 		return nil, fmt.Errorf("cannot set ZONE: %v", err)
