@@ -148,7 +148,9 @@ func (p *Provider) auth() error {
 }
 
 func (p *Provider) setZone(zone string) error {
+	fmt.Println("zone: ", zone)
 	zoneName := zone + "."
+	fmt.Println("zone +: ", zoneName)
 	zoneID, err := p.setZoneID(zoneName)
 	if err != nil {
 		return err
@@ -175,6 +177,7 @@ func (p *Provider) setZoneID(zoneName string) (string, error) {
 	}
 
 	for _, zone := range allZones {
+		fmt.Println("FROM setZoneID: ------>>>>>>>>>>>> zone.Name: ", zone.Name, "zoneName: ", zoneName)
 		zone.Name = zone.Name
 		if zoneName == zone.Name {
 			return zone.ID, nil
