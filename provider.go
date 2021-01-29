@@ -75,6 +75,8 @@ func (p *Provider) AppendRecords(ctx context.Context, zone string, records []lib
 	if last != "." {
 		zone = zone + "."
 	}
+	
+	fmt.Println("AFTER: ", last, "ZONE:", zone)
 
 	err = p.setZone(zone)
 	if err != nil {
