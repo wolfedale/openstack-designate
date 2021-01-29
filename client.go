@@ -149,7 +149,7 @@ func (p *Provider) auth() error {
 
 func (p *Provider) setZone(zone string) error {
 	fmt.Println("==> setZone() zone: ", zone)
-	zoneID, err := p.setZoneID(zoneName)
+	zoneID, err := p.setZoneID(zone)
 	if err != nil {
 		return err
 	}
